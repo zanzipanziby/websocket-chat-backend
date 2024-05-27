@@ -13,12 +13,12 @@ const messages = [
 ]
 
 const app = express();
-// app.use(cors());
-app.use(cors({
-    origin: 'https://websocket-chat-frontend.vercel.app', // Разрешить запросы с вашего домена на Vercel
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Если вам нужны куки или авторизация
-}));
+app.use(cors());
+// app.use(cors({
+//     origin: 'https://websocket-chat-frontend.vercel.app', // Разрешить запросы с вашего домена на Vercel
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true, // Если вам нужны куки или авторизация
+// }));
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
