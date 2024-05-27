@@ -22,10 +22,12 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3001",  // Замените на адрес вашего клиента
+        origin: ["http://localhost:3001", "https://websocket-chat-frontend.vercel.app", "https://websocket-chat-frontend.onrender.com/"],  // Замените на адрес вашего клиента
     }
 });
-
+app.get('/test', (req, res) => {
+    res.send('test');
+})
 app.get('/', (req, res) => {
     res.send('Hello World!');
 })
